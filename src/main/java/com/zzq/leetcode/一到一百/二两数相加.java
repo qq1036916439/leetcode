@@ -2,7 +2,7 @@ package com.zzq.leetcode.一到一百;
 
 import com.zzq.leetcode.base.ListNode;
 
-public class 二数字相加 {
+public class 二两数相加 {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		int carry = 0;
 		ListNode head = new ListNode();
