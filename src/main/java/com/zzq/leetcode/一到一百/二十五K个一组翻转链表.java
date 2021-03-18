@@ -2,8 +2,11 @@ package com.zzq.leetcode.一到一百;
 
 import com.zzq.leetcode.base.ListNode;
 
+import static com.zzq.leetcode.base.ListNodeFunction.arrayToListNode;
+import static com.zzq.leetcode.base.ListNodeFunction.printListNode;
+
 public class 二十五K个一组翻转链表 {
-	public ListNode reverseKGroup(ListNode head, int k) {
+	public static ListNode reverseKGroup(ListNode head, int k) {
 		ListNode hari = new ListNode(0);
 		hari.next = head;
 		ListNode pre = hari;
@@ -28,8 +31,8 @@ public class 二十五K个一组翻转链表 {
 		return hari.next;
 	}
 
-	public ListNode[] myReverse(ListNode head, ListNode tail) {
-		ListNode prev = tail.next;
+	public static ListNode[] myReverse(ListNode head, ListNode tail) {
+		ListNode prev = null;
 		ListNode p = head;
 		while (prev != tail) {
 			ListNode next = p.next;
@@ -38,5 +41,11 @@ public class 二十五K个一组翻转链表 {
 			p = next;
 		}
 		return new ListNode[]{tail, head};
+	}
+
+	public static void main(String[] args) {
+		ListNode listNode = arrayToListNode(1, 2, 3, 4, 5);
+		ListNode listNode1 = reverseKGroup(listNode, 1);
+		printListNode(listNode1);
 	}
 }
