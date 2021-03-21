@@ -4,6 +4,9 @@ import com.zzq.leetcode.base.ListNode;
 
 public class 十九删除链表的单数第N个节点 {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
+		if (n == 0) {
+			return head;
+		}
 		ListNode fast = head;
 		ListNode slow = head;
 		for (int i = 0; i < n; i++) {
