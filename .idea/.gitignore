@@ -6,3 +6,10 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/leetcode/
+/.gitignore
+/misc.xml
+/modules.xml
+/thriftCompiler.xml
+/uiDesigner.xml
+/vcs.xml
