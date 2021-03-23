@@ -6,29 +6,39 @@ package com.zzq.leetcode.一到一百;
  */
 public class 三十四旋转数组中找目标值 {
 
-  public int search(int[] nums, int target) {
+  public static int[] searchRange(int[] nums, int target) {
+    if(nums==null||nums.length==0){
+      return new int[]{-1,-1};
+    }
     int left = 0;
     int right = nums.length - 1;
+    int mid = 0;
     while (left <= right) {
-      int mid = left + (right - left) / 2;
+      mid = left + (right - left) / 2;
       if (nums[mid] == target) {
-        return mid;
+        break;
       }
-      //左区间连续递增
-      if (nums[left] <= nums[mid]) {
-        if (nums[left] <= target && target < nums[mid]) {
-          right = mid - 1;
-        } else {
-          left = mid + 1;
-        }
+      if (nums[mid] > target) {
+        right = mid-1;
       } else {
-        if (nums[mid] < target && target <= nums[right]) {
-          left = mid + 1;
-        } else {
-          right = mid - 1;
-        }
+        left = mid+1;
       }
     }
-    return -1;
+    if (nums[mid] != target) {
+      return new int[]{-1, -1};
+    }
+    int resLeft = mid;
+    int resRight = mid;
+    while (resLeft > 0 && nums[resLeft - 1] == target) {
+      resLeft--;
+    }
+    while (resRight < nums.length-1 && nums[resRight + 1] == target) {
+      resRight++;
+    }
+    return new int[]{resLeft, resRight};
+  }
+
+  public static void main(String[] args) {
+    System.out.println(searchRange(new int[]{1},1)[0]+"+"+searchRange(new int[]{1},1)[1]);
   }
 }
