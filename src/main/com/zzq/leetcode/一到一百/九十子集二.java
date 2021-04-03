@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author zhangzhiqiang
+ */
 public class 九十子集二 {
 	public List<List<Integer>> subsetsWithDup(int[] nums) {
 		Arrays.sort(nums);
