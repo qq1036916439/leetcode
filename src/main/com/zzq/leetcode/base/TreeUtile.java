@@ -16,6 +16,5 @@ public class TreeUtile {
 		return treeNode;
 	}
 
-	public static void buildTree(Integer[] integers) {
-	}
+
 }
