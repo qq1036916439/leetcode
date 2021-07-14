@@ -30,4 +30,31 @@ public class 二百一十三打家劫舍二 {
 			return dp[dp.length - 1];
 		}
 	}
+
+	/**
+	 *	滚动数组空间优化
+	 */
+	public int rob2(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		}
+		if (nums.length == 1) {
+			return nums[0];
+		}
+		if (nums.length == 2) {
+			return Math.max(nums[0], nums[1]);
+		}
+		return Math.max(rob(nums, 1, nums.length-1), rob(nums, 0, nums.length - 2));
+	}
+
+	public int rob(int[] nums, int start, int end) {
+		int first = nums[start];
+		int second = Math.max(nums[start], nums[start + 1]);
+		for (int i = start + 2; i <=end; i++) {
+			int tem = second;
+			second = Math.max(nums[i] + first, second);
+			first = tem;
+		}
+		return second;
+	}
 }
