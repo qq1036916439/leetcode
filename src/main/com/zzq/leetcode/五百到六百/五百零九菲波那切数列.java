@@ -7,11 +7,8 @@ package com.zzq.leetcode.五百到六百;
 public class 五百零九菲波那切数列 {
 
   public int fib(int n) {
-    if (n == 0) {
-      return 0;
-    }
-    if (n == 1) {
-      return 1;
+    if (n < 2) {
+      return n;
     }
     int first = 0;
     int second = 1;
