@@ -4,7 +4,7 @@ package com.zzq.leetcode.五百到六百;
  * @author zhangzhiqiang
  * @date 2021-07-14 8:34 下午
  */
-public class 五百零九菲波那切数列 {
+public class 五百零九斐波那契数 {
 
   public int fib(int n) {
     if (n < 2) {
