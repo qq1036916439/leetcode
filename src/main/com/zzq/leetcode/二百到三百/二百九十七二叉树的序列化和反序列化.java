@@ -11,22 +11,21 @@ import com.zzq.leetcode.base.TreeNode;
  * Created on 2021-10-29
  */
 public class 二百九十七二叉树的序列化和反序列化 {
-    // Encodes a tree to a single string.
+
     public String serialize(TreeNode root) {
         return reserialize(root, "");
     }
 
     public String reserialize(TreeNode root, String str) {
         if (root == null) {
-            return str += "#,";
+            return str + "#,";
         }
-        str += str.valueOf(root.val) + ",";
+        str += root.val + ",";
         str = reserialize(root.left, str);
         str = reserialize(root.right, str);
         return str;
     }
 
-    // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         return rdeserialize(new LinkedList<>(Arrays.asList(data.split(","))));
     }
