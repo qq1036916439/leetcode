@@ -1,52 +1,112 @@
 package com.zzq.leetcode.周赛;
 
-import java.util.Random;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
 
 public class Main {
 
 
-
 	public static void main(String[] args) {
-		//Scanner in = new Scanner(System.in);
-		//int a = in.nextInt();
-		//System.out.println(a);
-		int[]  array=new int[]{1,3, 2, 2, 5, 4};
-		quickSort(array,0,array.length-1);
-		for(int i=0;i<array.length;i++){
-			System.out.print(array[i]);
-		}
+		countVowels("noosabasboosa");
 	}
 
-	public static void quickSort(int[] array,int left,int right){
-		if(left<right){
-			int pos =randomSort(array,left,right);
-			quickSort(array,left,pos-1);
-			quickSort(array,pos+1,right);
-		}
-	}
-	public static int randomSort(int[] array,int left,int right){
-		int po =new Random().nextInt(right-left+1)+left;
-		swap(array,po,right);
-		return patition(array,left,right);
-	}
-
-	public static int patition(int[] array,int left,int right){
-		int index=left-1;
-		int mid=array[right];
-		for(int i=left;i<right;i++){
-			if(array[i]<=mid){
-				index++;
-				swap(array,index,i);
+	public static long countVowels(String word) {
+		long counter = 0;
+		char[] chars = word.toCharArray();
+		for (char c : chars) {
+			if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+				counter++;
 			}
 		}
-		swap(array,index+1,right);
-		return index+1;
+		long n = chars.length * (chars.length + 1) / 2;
+		return counter * n / 2;
 	}
 
-	public static void swap(int[] array,int i,int j){
-		int tem=array[i];
-		array[i]=array[j];
-		array[j]=tem;
+
+	public static int countVowelSubstrings(String word) {
+		HashSet<Character> set = new HashSet<>();
+		int res = 0;
+		char[] chars = word.toCharArray();
+		for (int i = 0; i < chars.length; i++) {
+			for (int j = i; j < chars.length; j++) {
+				for (int k = i; k <= j; k++) {
+					if (chars[k] == 'a' || chars[k] == 'e' || chars[k] == 'i' || chars[k] == 'o' || chars[k] == 'u') {
+						set.add(chars[k]);
+					} else {
+						break;
+					}
+				}
+				if (set.size() == 5) {
+					res++;
+				}
+				set.clear();
+			}
+		}
+		return res;
 	}
+
+	public static int maxTwoEvents(int[][] events) {
+		Arrays.sort(events, (o1, o2) -> o2[2] - o1[2]);
+		int res = 0;
+		for (int i = 0; i < events.length; i++) {
+			int cur = events[i][2];
+			res = Math.max(cur, res);
+			for (int j = i + 1; j < events.length; j++) {
+				if (events[j][2] + cur <= res) {
+					break;
+				}
+				if (events[i][0] > events[j][1] || events[j][0] > events[i][1]) {
+					res = Math.max(cur + events[j][2], res);
+					break;
+				}
+			}
+		}
+		return res;
+	}
+
+	public int minimumOperations(int[] nums, int start, int goal) {
+		LinkedList<Integer> lists = new LinkedList<>();
+		lists.add(start);
+		int count = 0;
+		int res = -1;
+		HashSet<Integer> set = new HashSet<>();
+		while (!lists.isEmpty()) {
+			int size = lists.size();
+			count++;
+			for (int i = 0; i < size; i++) {
+				Integer first = lists.pollFirst();
+				if (set.contains(first)) {
+					break;
+				}
+				set.add(first);
+				for (int num : nums) {
+					int cur = first + num;
+					int cur1 = first - num;
+					int cur2 = first ^ num;
+					if (cur == goal) {
+						return count;
+					}
+					if (cur1 == goal) {
+						return count;
+					}
+					if (cur2 == goal) {
+						return count;
+					}
+					if (cur <= 1000 && cur >= 0) {
+						lists.add(cur);
+					}
+					if (cur1 <= 1000 && cur >= 0) {
+						lists.add(cur1);
+					}
+					if (cur2 <= 1000 && cur >= 0) {
+						lists.add(cur2);
+					}
+				}
+			}
+		}
+		return res;
+	}
+
 
 }
