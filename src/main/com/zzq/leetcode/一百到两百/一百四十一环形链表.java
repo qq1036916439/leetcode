@@ -8,19 +8,19 @@ import com.zzq.leetcode.base.ListNode;
  */
 public class 一百四十一环形链表 {
 
-  public boolean hasCycle(ListNode head) {
-    if (head == null) {
-      return false;
-    }
-    ListNode fast = head.next;
-    ListNode slow = head;
-    while (slow != null && fast != null && fast.next != null) {
-      if (slow == fast) {
-        return true;
-      }
-      slow = slow.next;
-      fast = fast.next.next;
-    }
-    return false;
-  }
+	public boolean hasCycle(ListNode head) {
+		if (head == null) {
+			return false;
+		}
+		ListNode fast = head.next;
+		ListNode slow = head;
+		while (slow != null && fast != null && fast.next != null) {
+			if (slow == fast) {
+				return true;
+			}
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return false;
+	}
 }

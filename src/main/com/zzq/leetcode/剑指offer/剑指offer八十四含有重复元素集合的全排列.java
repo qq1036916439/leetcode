@@ -29,7 +29,7 @@ public class 剑指offer八十四含有重复元素集合的全排列 {
 			}
 			used[i] = true;
 			list.add(nums[i]);
-			dfs(nums, i, list,used);
+			dfs(nums, i, list, used);
 			list.removeLast();
 			used[i] = false;
 		}

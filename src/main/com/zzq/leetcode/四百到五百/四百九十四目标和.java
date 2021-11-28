@@ -2,6 +2,7 @@ package com.zzq.leetcode.四百到五百;
 
 public class 四百九十四目标和 {
 	int res = 0;
+
 	public int findTargetSumWays(int[] nums, int target) {
 		back(nums, 0, target, 0);
 		return res;

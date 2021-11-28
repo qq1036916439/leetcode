@@ -13,14 +13,14 @@ public class 九十四二叉树的中序遍历 {
 		while (root != null || !stack.isEmpty()) {
 			while (root != null) {
 				stack.push(root);
-				root=root.left;
+				root = root.left;
 			}
-			if(!stack.isEmpty()){
+			if (!stack.isEmpty()) {
 				root = stack.pop();
-				if(root!=null){
+				if (root != null) {
 					res.add(root.val);
 				}
-				root=root.right;
+				root = root.right;
 			}
 		}
 		return res;

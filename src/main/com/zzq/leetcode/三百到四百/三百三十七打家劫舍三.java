@@ -13,8 +13,8 @@ public class 三百三十七打家劫舍三 {
 			return new int[2];
 		}
 		int[] result = new int[2];
-		int left[] = robInternal(root.left);
-		int right[] = robInternal(root.right);
+		int[] left = robInternal(root.left);
+		int[] right = robInternal(root.right);
 		//0 代表不偷。1代表偷。
 		result[0] = Math.max(left[0], left[1] + Math.max(right[0], right[1]));
 		result[1] = left[0] + right[0] + root.val;

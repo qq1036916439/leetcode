@@ -54,5 +54,4 @@ public class 六百九十员工的重要性 {
 		public List<Integer> subordinates;
 	}
 
-	;
 }

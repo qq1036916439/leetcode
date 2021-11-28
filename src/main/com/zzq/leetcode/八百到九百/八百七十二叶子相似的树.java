@@ -11,31 +11,31 @@ import java.util.List;
  */
 public class 八百七十二叶子相似的树 {
 
-  public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-    ArrayList<Integer> nums1 = new ArrayList();
-    ArrayList<Integer> nums2 = new ArrayList();
-    dfs(root1, nums1);
-    dfs(root2, nums2);
-    if (nums1.size() != nums2.size()) {
-      return false;
-    }
-    for (int i = 0; i < nums1.size(); i++) {
-      if (!nums1.get(i).equals(nums2.get(i))) {
-        return false;
-      }
-    }
-    return true;
-  }
+	public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+		ArrayList<Integer> nums1 = new ArrayList();
+		ArrayList<Integer> nums2 = new ArrayList();
+		dfs(root1, nums1);
+		dfs(root2, nums2);
+		if (nums1.size() != nums2.size()) {
+			return false;
+		}
+		for (int i = 0; i < nums1.size(); i++) {
+			if (!nums1.get(i).equals(nums2.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
 
-  private void dfs(TreeNode root, List<Integer> list) {
-    if (root == null) {
-      return;
-    }
-    if (root.left == null && root.right == null) {
-      list.add(root.val);
-    }
-    dfs(root.left, list);
-    dfs(root.right, list);
+	private void dfs(TreeNode root, List<Integer> list) {
+		if (root == null) {
+			return;
+		}
+		if (root.left == null && root.right == null) {
+			list.add(root.val);
+		}
+		dfs(root.left, list);
+		dfs(root.right, list);
 
-  }
+	}
 }

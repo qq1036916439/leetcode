@@ -5,15 +5,15 @@ import java.util.HashSet;
 public class 长度为三且各字符不同的子字符串 {
 
 	public static int countGoodSubstrings(String s) {
-		int res=0;
-		char[] array=s.toCharArray();
-		HashSet<Character> set=new HashSet();
-		for(int i=0;i<array.length-2;i++){
-			for (int j = i; j <i+3; j++) {
-				if(!set.add(array[j])){
+		int res = 0;
+		char[] array = s.toCharArray();
+		HashSet<Character> set = new HashSet();
+		for (int i = 0; i < array.length - 2; i++) {
+			for (int j = i; j < i + 3; j++) {
+				if (!set.add(array[j])) {
 					break;
 				}
-				if(j==i+2){
+				if (j == i + 2) {
 					res++;
 				}
 			}

@@ -44,13 +44,13 @@ public class 二百一十三打家劫舍二 {
 		if (nums.length == 2) {
 			return Math.max(nums[0], nums[1]);
 		}
-		return Math.max(rob(nums, 1, nums.length-1), rob(nums, 0, nums.length - 2));
+		return Math.max(rob(nums, 1, nums.length - 1), rob(nums, 0, nums.length - 2));
 	}
 
 	public int rob(int[] nums, int start, int end) {
 		int first = nums[start];
 		int second = Math.max(nums[start], nums[start + 1]);
-		for (int i = start + 2; i <=end; i++) {
+		for (int i = start + 2; i <= end; i++) {
 			int tem = second;
 			second = Math.max(nums[i] + first, second);
 			first = tem;

@@ -17,7 +17,7 @@ public class 二百八十三实现前缀树 {
 		char[] chars = word.toCharArray();
 		TreeNode cur = root;
 		for (int i = 0; i < chars.length; i++) {
-			int u = (int) (chars[i] - 'a');
+			int u = chars[i] - 'a';
 			if (cur.ne[u] == null) {
 				cur.ne[u] = new TreeNode();
 			}
@@ -30,7 +30,7 @@ public class 二百八十三实现前缀树 {
 		char[] chars = word.toCharArray();
 		TreeNode cur = root;
 		for (int i = 0; i < chars.length; i++) {
-			int u = (int) (chars[i] - 'a');
+			int u = chars[i] - 'a';
 			if (cur.ne[u] == null) {
 				return false;
 			} else {
@@ -44,7 +44,7 @@ public class 二百八十三实现前缀树 {
 		char[] chars = prefix.toCharArray();
 		TreeNode cur = root;
 		for (int i = 0; i < chars.length; i++) {
-			int u = (int) (chars[i] - 'a');
+			int u = chars[i] - 'a';
 			if (cur.ne[u] == null) {
 				return false;
 			}

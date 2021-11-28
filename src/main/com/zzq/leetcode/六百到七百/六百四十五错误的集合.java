@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class 六百四十五错误的集合 {
 	public int[] findErrorNums(int[] nums) {
 		Arrays.sort(nums);
-		int pre=0;
+		int pre = 0;
 		int[] result = new int[2];
 		for (int i = 0; i < nums.length; i++) {
 			if (pre == nums[i]) {

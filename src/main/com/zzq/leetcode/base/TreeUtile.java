@@ -4,10 +4,10 @@ public class TreeUtile {
 	static int index = 0;
 
 	public static TreeNode buildTree(Integer[] nodes, int index) {
-		if(index>nodes.length-1){
+		if (index > nodes.length - 1) {
 			return null;
 		}
-		if(nodes[index]==null){
+		if (nodes[index] == null) {
 			return null;
 		}
 		TreeNode treeNode = new TreeNode(nodes[index]);

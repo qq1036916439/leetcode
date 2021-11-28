@@ -28,20 +28,20 @@ public class 七百四十删除并获得点数 {
 	}
 
 	public int deleteAndEarn1(int[] nums) {
-		int max=0;
+		int max = 0;
 		for (int num : nums) {
-			max=Math.max(max,num);
+			max = Math.max(max, num);
 		}
-		int[] s = new int[max+1];
+		int[] s = new int[max + 1];
 		for (int num : nums) {
-			s[num]+=num;
+			s[num] += num;
 		}
-		int first=s[0];
-		int senc=Math.max(s[0],s[1]);
+		int first = s[0];
+		int senc = Math.max(s[0], s[1]);
 		for (int i = 2; i < s.length; i++) {
-			int tem=senc;
-			senc=Math.max(first+s[i],senc);
-			first=tem;
+			int tem = senc;
+			senc = Math.max(first + s[i], senc);
+			first = tem;
 		}
 		return senc;
 	}

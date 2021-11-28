@@ -17,7 +17,7 @@ public class 九百一十二排序数组归并排序 {
 			return;
 		}
 		int mid = (left + right) >> 1;
-		mergeSort(nums, left, mid );
+		mergeSort(nums, left, mid);
 		mergeSort(nums, mid + 1, right);
 		int i = left;
 		int j = mid + 1;

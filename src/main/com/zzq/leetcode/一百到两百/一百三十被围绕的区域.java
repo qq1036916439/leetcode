@@ -28,13 +28,13 @@ public class 一百三十被围绕的区域 {
 	}
 
 	void dfs(char[][] board, int x, int y) {
-		if (x < 0 || x >= board.length || y < 0 || y >= board[0].length||board[x][y]!='O'){
+		if (x < 0 || x >= board.length || y < 0 || y >= board[0].length || board[x][y] != 'O') {
 			return;
 		}
-		board[x][y]='A';
-		dfs(board,x+1,y);
-		dfs(board,x-1,y);
-		dfs(board,x,y+1);
-		dfs(board,x,y-1);
+		board[x][y] = 'A';
+		dfs(board, x + 1, y);
+		dfs(board, x - 1, y);
+		dfs(board, x, y + 1);
+		dfs(board, x, y - 1);
 	}
 }

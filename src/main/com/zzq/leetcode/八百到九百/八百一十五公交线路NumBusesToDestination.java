@@ -50,7 +50,7 @@ import java.util.LinkedList;
 //leetcode submit region begin(Prohibit modification and deletion)
 class 八百一十五公交线路NumBusesToDestination {
 	public int numBusesToDestination(int[][] routes, int source, int target) {
-		if(source==target){
+		if (source == target) {
 			return 0;
 		}
 		HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
@@ -75,17 +75,17 @@ class 八百一十五公交线路NumBusesToDestination {
 					Integer l = list.get(i1);
 					if (used.contains(l)) {
 						continue;
-					}else {
+					} else {
 						used.add(l);
 					}
 					for (int j = 0; j < routes[l].length; j++) {
 						if (routes[l][j] == target) {
 							return count;
 						}
-						if(poll==routes[l][j]){
+						if (poll == routes[l][j]) {
 							continue;
 						}
-						if(!used.contains(routes[l][j])){
+						if (!used.contains(routes[l][j])) {
 							queue.add(routes[l][j]);
 						}
 					}
