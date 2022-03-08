@@ -6,6 +6,10 @@ package com.zzq.leetcode.一到一百;
  */
 public class 七十九单词搜索 {
 
+
+	/**
+	 *  找目标单词，是否在矩阵之中。直接上去一个dfs。搜就对了。深度优先遍历。
+	 */
 	public boolean exist(char[][] board, String word) {
 		boolean[][] used = new boolean[board.length][board[0].length];
 		for (int i = 0; i < board.length; i++) {

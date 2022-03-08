@@ -6,6 +6,9 @@ import java.util.HashMap;
  * @author zhangzhiqiang
  */
 public class 一两数之和 {
+	/**
+	 * 直接hash法O(n)
+	 */
 	public int[] twoSum(int[] nums, int target) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {

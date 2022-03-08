@@ -1,5 +1,6 @@
 package com.zzq.leetcode.周赛;
 
+import com.zzq.leetcode.base.ListNode;
 import com.zzq.leetcode.base.TreeNode;
 
 import java.util.ArrayList;
@@ -15,7 +16,78 @@ public class Main {
 
 
 	public static void main(String[] args) {
+		System.out.println(longestPalindrome(new String[]{"cc","ll","xx"}));
+		;
+	}
 
+	public static int longestPalindrome(String[] words) {
+		HashMap<String, Integer> counter = new HashMap<>();
+		int res = 0;
+		HashSet<String> used = new HashSet<>();
+		for (String word : words) {
+			counter.put(word, counter.getOrDefault(word, 0) + 1);
+		}
+		Set<String> set = counter.keySet();
+		boolean flag=false;
+		for (String str : set) {
+			if (used.contains(str)) {
+				continue;
+			}
+			String rev = rev(str);
+			if (str.charAt(0) != str.charAt(1)) {
+				Integer num1 = counter.getOrDefault(str, 0);
+				Integer num2 = counter.getOrDefault(rev, 0);
+				res += Math.min(num1, num2) * 4;
+			}else {
+				Integer num1 = counter.getOrDefault(str, 0);
+				if(num1==1){
+					if(!flag){
+						flag=true;
+						res+=2;
+					}
+				}else {
+					res=num1*4+res;
+				}
+			}
+			used.add(rev);
+			used.add(str);
+		}
+		return res;
+	}
+
+	private static String rev(String str) {
+		String res = "";
+		return str.charAt(1) + "" + str.charAt(0);
+	}
+
+	public int pairSum(ListNode head) {
+		ArrayList<Integer> nodes = new ArrayList<>();
+		while (head != null) {
+			nodes.add(head.val);
+			head = head.next;
+		}
+		int left = 0;
+		int right = nodes.size() - 1;
+		int res = 0;
+		while (left < right) {
+			res = Math.max(res, nodes.get(left) + nodes.get(right));
+			left++;
+			right--;
+		}
+		return res;
+	}
+
+	public String capitalizeTitle(String title) {
+		String res = "";
+		String[] s = title.split(" ");
+		for (int i = 0; i < s.length; i++) {
+			if (s[i].length() <= 2) {
+				s[i] = s[i].toLowerCase();
+			} else {
+				s[i] = s[i].substring(0, 1).toUpperCase() + s[i].substring(1).toLowerCase();
+			}
+		}
+		return res;
 	}
 
 

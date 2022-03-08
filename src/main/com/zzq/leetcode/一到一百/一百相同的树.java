@@ -8,6 +8,9 @@ import com.zzq.leetcode.base.TreeNode;
  */
 public class 一百相同的树 {
 
+	/**
+	 * 判断两颗树是否相同。直接上来dfs比较就行了。
+	 */
 	public boolean isSameTree(TreeNode p, TreeNode q) {
 		if (p == null && q == null) {
 			return true;
