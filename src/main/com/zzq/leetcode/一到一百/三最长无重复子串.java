@@ -5,7 +5,6 @@ public class 三最长无重复子串 {
 		int[] window = new int[128];
 		char[] array = s.toCharArray();
 		int res = 0;
-		int length = 0;
 		int left = 0;
 		int right = 0;
 		while (right < array.length) {

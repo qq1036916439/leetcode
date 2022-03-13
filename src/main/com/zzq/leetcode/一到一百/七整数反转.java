@@ -1,6 +1,9 @@
 package com.zzq.leetcode.一到一百;
 
 public class 七整数反转 {
+	/**
+	 * https://leetcode-cn.com/problems/reverse-integer/
+	 */
 	public int reverse(int x) {
 		int rev = 0;
 		while (x != 0) {

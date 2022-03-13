@@ -1,8 +1,10 @@
 package com.zzq.leetcode.一到一百;
 
+import java.util.Objects;
+
 public class 八字符串转整数 {
 	public int myAtoi(String s) {
-		if (s == "" || s.length() == 0 || s == null) {
+		if (Objects.equals(s, "") || s.length() == 0 || s == null) {
 			return 0;
 		}
 		char[] chars = s.toCharArray();
