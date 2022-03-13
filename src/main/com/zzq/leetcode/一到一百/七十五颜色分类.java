@@ -6,6 +6,10 @@ package com.zzq.leetcode.一到一百;
  */
 public class 七十五颜色分类 {
 
+	/**
+	 * https://leetcode-cn.com/problems/sort-colors/
+	 * 0 1 2
+	 */
 	public void sortColors(int[] nums) {
 		int left = 0;
 		int right = nums.length - 1;
