@@ -14,7 +14,7 @@ public class 二百三十九滑动窗口最大值 {
         LinkedList<Integer> q = new LinkedList<>();
         int[] result = new int[nums.length - k + 1];
         for (int i = 0; i < nums.length; i++) {
-            if (!q.isEmpty() && nums[q.peekLast()] <= nums[i]) {
+            while (!q.isEmpty() && nums[q.peekLast()] <= nums[i]) {
                 q.pollLast();
             }
             q.addLast(i);
