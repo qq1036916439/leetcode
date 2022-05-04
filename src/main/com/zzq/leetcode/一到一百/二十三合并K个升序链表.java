@@ -1,6 +1,7 @@
 package com.zzq.leetcode.一到一百;
 
 import com.zzq.leetcode.base.ListNode;
+import com.zzq.leetcode.base.ListNodeFunction;
 
 import java.util.PriorityQueue;
 
@@ -44,11 +45,11 @@ public class 二十三合并K个升序链表 {
 	 * 归并解法
 	 */
 	public static class 二十三合并K个升序链表2 {
-		public ListNode mergeKLists(ListNode[] lists) {
+		public static ListNode mergeKLists(ListNode[] lists) {
 			return merge(lists, 0, lists.length - 1);
 		}
 
-		public ListNode merge(ListNode[] node, int left, int right) {
+		public static ListNode merge(ListNode[] node, int left, int right) {
 			if (left == right) {
 				return node[left];
 			}
@@ -59,7 +60,7 @@ public class 二十三合并K个升序链表 {
 			return mergeTwo(merge(node, left, mid), merge(node, mid + 1, right));
 		}
 
-		public ListNode mergeTwo(ListNode l1, ListNode l2) {
+		public static ListNode mergeTwo(ListNode l1, ListNode l2) {
 			if (l1 == null || l2 == null) {
 				return l1 == null ? l2 : l1;
 			}
@@ -87,9 +88,17 @@ public class 二十三合并K个升序链表 {
 			}
 			return head.next;
 		}
+
+
+		/**
+		 * 1,4,5],[1,3,4],[2,6]
+		 * @param args
+		 */
+		public static void main(String[] args) {
+			ListNode[] listNodes = {ListNodeFunction.arrayToListNode(1, 4, 5), ListNodeFunction.arrayToListNode(1, 2, 3), ListNodeFunction.arrayToListNode(2,
+					6)};
+			mergeKLists(listNodes);
+		}
 	}
 
-	public static void main(String[] args) {
-		System.out.println(1/3);
-	}
 }
