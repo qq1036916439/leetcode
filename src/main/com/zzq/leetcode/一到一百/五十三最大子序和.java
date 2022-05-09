@@ -2,14 +2,12 @@ package com.zzq.leetcode.一到一百;
 
 public class 五十三最大子序和 {
 	public int maxSubArray(int[] nums) {
-		int cursum = nums[0];
-		int reslut = nums[0];
-		cursum = nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			cursum = cursum + nums[i];
-			cursum = Math.max(cursum, nums[i]);
-			reslut = Math.max(reslut, cursum);
+		int maxSum = 0;
+		int res = Integer.MIN_VALUE;
+		for (int i = 0; i < nums.length; i++) {
+			maxSum = Math.max(nums[i], maxSum + nums[i]);
+			res = Math.max(res, maxSum);
 		}
-		return reslut;
+		return res;
 	}
 }
