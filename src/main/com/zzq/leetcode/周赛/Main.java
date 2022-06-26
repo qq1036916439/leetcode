@@ -403,4 +403,15 @@ public class Main {
 	}
 
 
+	public long countPairs(int n, int[][] edges) {
+		HashMap<Integer, List<Integer>> map = new HashMap<>();
+		for (int i = 0; i < edges.length; i++) {
+			List<Integer> list = map.getOrDefault(edges[i][0], new ArrayList<>());
+			list.add(edges[i][1]);
+			map.put(edges[i][0], list);
+		}
+		return 0;
+	}
+
+
 }
