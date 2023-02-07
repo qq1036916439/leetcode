@@ -31,7 +31,7 @@ public class 七十六最小覆盖子串 {
 				count++;
 			}
 			while (count == valid) {
-				if (valid == count && maxLength > right - left) {
+				if (maxLength > right - left) {
 					res = s.substring(left, right);
 					maxLength = right - left;
 				}
